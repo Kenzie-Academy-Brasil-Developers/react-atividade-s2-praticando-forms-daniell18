@@ -20,6 +20,7 @@ function App() {
       .string()
       .required("Campo Obrigatorio")
       .oneOf([yup.ref("password"), null], "Senhas diferente"),
+    user: yup.string().required("Nome de usuario Obrigatorio"),
   });
 
   const {
@@ -39,6 +40,10 @@ function App() {
           <div className="info">
             <input placeholder="Nome" {...register("name")} />
             <p>{errors.name?.message}</p>
+          </div>
+          <div className="info">
+            <input placeholder="Usuario" {...register("user")} />
+            <p>{errors.user?.message}</p>
           </div>
           <div className="info">
             <input placeholder="Email" {...register("Email")} />
